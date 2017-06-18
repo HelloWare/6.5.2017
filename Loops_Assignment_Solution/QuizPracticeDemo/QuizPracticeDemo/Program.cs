@@ -9,9 +9,9 @@ namespace QuizPracticeDemoNamespace
 
     class Program
     {      
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-           
+            DateTime now = DateTime.Now;
             Console.WriteLine("What's 3+5?\na. 5\nb. 6\nc. 7\nd. 8");
             char answer = Console.ReadKey().KeyChar; //Convert.ToChar(Console.ReadKey().Key);
             Console.WriteLine();
