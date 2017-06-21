@@ -8,10 +8,19 @@ namespace DIYComputer
 {
     class Program
     {
+        static Cpu BorrowJohnCpu()
+        {
+            return new Cpu() { Frequency = 3.5 };
+        }
+        static Motherboard BuyFromZhangSan()
+        {
+            return new Motherboard();
+        }
         static void Main(string[] args)
         {
-            Cpu johnCpu = new Cpu();
-            Motherboard zhangSanMotherboard = new Motherboard();
+            Cpu johnCpu = BorrowJohnCpu();
+            johnCpu.Frequency = 3.5;
+            Motherboard zhangSanMotherboard = BuyFromZhangSan();
             Ram newEggRam = new Ram();
             Gpu gpu = new Gpu();
             PowerSupply oldPowerSupply = new PowerSupply();
@@ -20,24 +29,32 @@ namespace DIYComputer
             Mouse mouse = new Mouse();
 
             DiyComputer myDiyComputer = new DiyComputer(johnCpu, zhangSanMotherboard, newEggRam, gpu, oldPowerSupply, monitor, keyboard, mouse);
+            myDiyComputer.ShowConfig();
 
             Cpu myNewCpu = new Cpu();
+            myNewCpu.Frequency = 4.0;
             myDiyComputer.Cpu = myNewCpu;
+            myDiyComputer.ShowConfig();
 
             DiyComputer hisComputer = new DiyComputer();
+            hisComputer.ShowConfig();
+
+            Motherboard ebayMotherboard = new Motherboard();
+            DiyComputer herComputer = new DiyComputer(motherboard: ebayMotherboard);
+
         }
     }
     
     class DiyComputer
     {
-        //declaration
-        Cpu cpu;
-        Motherboard motherboard;
-        Ram ram;
-        Gpu gpu;
-        PowerSupply powerSupply;
-        Monitor monitor;
-        Keyboard keyboard;
+        //declaration + initialization
+        Cpu cpu = new Cpu();
+        Motherboard motherboard=new Motherboard ();
+        Ram ram=new Ram ();
+        Gpu gpu=new Gpu ();
+        PowerSupply powerSupply=new PowerSupply();
+        Monitor monitor = new Monitor();
+        Keyboard keyboard =new Keyboard ();
         Mouse mouse;
 
         public Cpu Cpu
@@ -52,7 +69,6 @@ namespace DIYComputer
                 cpu = value;
             }
         }
-
         public Motherboard Motherboard
         {
             get
@@ -65,7 +81,6 @@ namespace DIYComputer
                 motherboard = value;
             }
         }
-
         public Ram Ram
         {
             get
@@ -78,7 +93,6 @@ namespace DIYComputer
                 ram = value;
             }
         }
-
         public Gpu Gpu
         {
             get
@@ -91,7 +105,6 @@ namespace DIYComputer
                 gpu = value;
             }
         }
-
         public PowerSupply PowerSupply
         {
             get
@@ -104,7 +117,6 @@ namespace DIYComputer
                 powerSupply = value;
             }
         }
-
         public Monitor Monitor
         {
             get
@@ -117,7 +129,6 @@ namespace DIYComputer
                 monitor = value;
             }
         }
-
         public Keyboard Keyboard
         {
             get
@@ -130,7 +141,6 @@ namespace DIYComputer
                 keyboard = value;
             }
         }
-
         public Mouse Mouse
         {
             get
@@ -143,8 +153,8 @@ namespace DIYComputer
                 mouse = value;
             }
         }
-
         //user has to supply all the compoments
+
         public DiyComputer(Cpu cpu, Motherboard motherboard,Ram ram, Gpu gpu,PowerSupply powerSupply, Monitor monitor, Keyboard keyboard,Mouse mouse)
         {
             //initialization
@@ -159,9 +169,29 @@ namespace DIYComputer
             Console.WriteLine("Computer Created!");
         }
 
-        public DiyComputer():this(new Cpu(), new Motherboard(), new Ram(), new Gpu(), new PowerSupply(), new Monitor(), new Keyboard(), new Mouse())
+        public DiyComputer():this(
+            new Cpu() { Frequency = 3.2 },
+            new Motherboard(),
+            new Ram(), 
+            new Gpu(),
+            new PowerSupply(), 
+            new Monitor(), 
+            new Keyboard(),
+            new Mouse())
         {
             Console.WriteLine("This is a default constructor");
+        }
+
+        public DiyComputer(Cpu cpu = null,Motherboard motherboard = null,Ram ram = null)
+        {
+            this.cpu = cpu ?? this.cpu;
+            this.motherboard = motherboard ?? this.motherboard;
+            this.ram = ram ?? this.ram;
+        }
+
+        public void ShowConfig()
+        {
+            Console.WriteLine("CPU has a frequency of {0}", this.cpu.Frequency);
         }
 
         //public DiyComputer()
@@ -177,16 +207,36 @@ namespace DIYComputer
         //    this.mouse = new Mouse();
         //}
 
-
-
     }
     class Cpu
     {
+       public Cpu()
+        {
+            Console.WriteLine("This is i5 CPU");
+        }
+
+        private double frequency;
+
+        public double Frequency
+        {
+            get
+            {
+                return frequency;
+            }
+
+            set
+            {
+                frequency = value;
+            }
+        }
 
     }
     class Motherboard
     {
-
+        public Motherboard()
+        {
+            Console.WriteLine("this is a Z270 motherboard");
+        }
     }
     class Ram
     {

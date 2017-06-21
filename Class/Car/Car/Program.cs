@@ -19,7 +19,6 @@ namespace Car
     class Car
     {
         private readonly double a = 20;
-
         public double Acceleration
         {
             get
@@ -27,7 +26,6 @@ namespace Car
                 return a;
             }
         }
-
         public void Drive()
         {
 
