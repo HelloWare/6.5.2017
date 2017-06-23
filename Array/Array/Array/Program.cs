@@ -13,7 +13,7 @@ namespace Array
 
 
             Car[] carArray = new Car[4];
-            Car[] carArrayReplica;
+            Car[] carArrayReplica = new Car[4];
 
             for (int i = 0; i < carArray.Length; i++)
             {
