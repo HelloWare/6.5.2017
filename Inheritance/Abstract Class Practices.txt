@@ -1,0 +1,28 @@
+Abstract Class Pratices:
+1.
+Team
+	Name：string 
+	players:List<Player>
+	coaches:List<Coach>
+	bench:List<Player>
+BallGame/abstract
+	aScores:int 
+	bScores:int
+	rules:List<Rule>
+	referees:List<Referee>
+	team1
+	team2
+	HasOvertime: true/false
+	AddScoreToTeam(int score, Team team)
+	GetWinner()
+	
+Basketball Team	
+Basketball Game
+	
+Soccer Team
+Soccer Team
+	
+	
+	
+	
+	
