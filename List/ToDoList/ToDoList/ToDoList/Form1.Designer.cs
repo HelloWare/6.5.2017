@@ -40,16 +40,19 @@
             this.toDoListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toDoListBox.FormattingEnabled = true;
             this.toDoListBox.ItemHeight = 20;
+            this.toDoListBox.Items.AddRange(new object[] {
+            "Buy Milk",
+            "Grocery"});
             this.toDoListBox.Location = new System.Drawing.Point(29, 70);
             this.toDoListBox.Name = "toDoListBox";
-            this.toDoListBox.Size = new System.Drawing.Size(382, 324);
+            this.toDoListBox.Size = new System.Drawing.Size(233, 184);
             this.toDoListBox.TabIndex = 0;
             // 
             // AddBtn
             // 
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddBtn.ForeColor = System.Drawing.Color.Lime;
-            this.AddBtn.Location = new System.Drawing.Point(443, 70);
+            this.AddBtn.Location = new System.Drawing.Point(302, 61);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(92, 83);
             this.AddBtn.TabIndex = 1;
@@ -61,7 +64,7 @@
             // 
             this.DeleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteBtn.ForeColor = System.Drawing.Color.Red;
-            this.DeleteBtn.Location = new System.Drawing.Point(443, 159);
+            this.DeleteBtn.Location = new System.Drawing.Point(302, 150);
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.Size = new System.Drawing.Size(92, 83);
             this.DeleteBtn.TabIndex = 2;
@@ -73,7 +76,7 @@
             // 
             this.CheckBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckBtn.ForeColor = System.Drawing.Color.Yellow;
-            this.CheckBtn.Location = new System.Drawing.Point(443, 248);
+            this.CheckBtn.Location = new System.Drawing.Point(302, 239);
             this.CheckBtn.Name = "CheckBtn";
             this.CheckBtn.Size = new System.Drawing.Size(92, 83);
             this.CheckBtn.TabIndex = 3;
@@ -83,9 +86,9 @@
             // 
             // toDoGroup
             // 
-            this.toDoGroup.Location = new System.Drawing.Point(565, 70);
+            this.toDoGroup.Location = new System.Drawing.Point(410, 61);
             this.toDoGroup.Name = "toDoGroup";
-            this.toDoGroup.Size = new System.Drawing.Size(420, 324);
+            this.toDoGroup.Size = new System.Drawing.Size(193, 193);
             this.toDoGroup.TabIndex = 4;
             this.toDoGroup.TabStop = false;
             this.toDoGroup.Text = "To Do List";
@@ -94,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1063, 445);
+            this.ClientSize = new System.Drawing.Size(657, 339);
             this.Controls.Add(this.toDoGroup);
             this.Controls.Add(this.CheckBtn);
             this.Controls.Add(this.DeleteBtn);

@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.newToDoItemTextbox = new System.Windows.Forms.TextBox();
+            this.textbox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // newToDoItemTextbox
+            // textbox
             // 
-            this.newToDoItemTextbox.Location = new System.Drawing.Point(13, 22);
-            this.newToDoItemTextbox.Multiline = true;
-            this.newToDoItemTextbox.Name = "newToDoItemTextbox";
-            this.newToDoItemTextbox.Size = new System.Drawing.Size(430, 163);
-            this.newToDoItemTextbox.TabIndex = 0;
+            this.textbox.Location = new System.Drawing.Point(13, 22);
+            this.textbox.Multiline = true;
+            this.textbox.Name = "textbox";
+            this.textbox.Size = new System.Drawing.Size(430, 163);
+            this.textbox.TabIndex = 0;
             // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(13, 207);
             this.button1.Name = "button1";
@@ -53,6 +54,7 @@
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(330, 207);
             this.button2.Name = "button2";
@@ -69,7 +71,7 @@
             this.ClientSize = new System.Drawing.Size(460, 278);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.newToDoItemTextbox);
+            this.Controls.Add(this.textbox);
             this.Name = "NewToDoItemForm";
             this.Text = "New To Do Item Form";
             this.ResumeLayout(false);
@@ -79,7 +81,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox newToDoItemTextbox;
+        private System.Windows.Forms.TextBox textbox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
     }

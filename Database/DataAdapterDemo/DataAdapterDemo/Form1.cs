@@ -24,7 +24,7 @@ namespace DataAdapterDemo
             string connectionString = @"Data Source=LAPTOP-E4GLUAC2\MSSQLSERVER01;Initial Catalog=sql_demo;"
        + "Integrated Security=true;";
             //This is not a good practice
-            string query = "SELECT * FROM Student;";
+            string query = "SELECT FirstName,LastName FROM Student;";
 
             SqlConnection sqlConnection = new SqlConnection(connectionString);
 
@@ -34,11 +34,12 @@ namespace DataAdapterDemo
 
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
 
-                DataSet customers = new DataSet();
+                DataSet students = new DataSet();
 
-                sqlDataAdapter.Fill(customers, "Student");
-                dataGridView1.AutoGenerateColumns = true;
-                dataGridView1.DataSource = customers.Tables[0];
+                sqlDataAdapter.Fill(students, "Student");
+
+                //dataGridView1.AutoGenerateColumns = true;
+                dataGridView1.DataSource = students.Tables[0];
             }
             catch (Exception ex)
             {

@@ -53,7 +53,8 @@ namespace RegistrationSystem
                     while (reader.Read())
                     {
                         Student std = new Student();
-                        std.Id = reader.GetInt32(0);
+                        //std.Id = reader.GetInt32(0);
+                        std.Id = Convert.ToInt32(reader["Id"]);
                         std.FirstName = reader.GetString(1);
                         std.LastName = reader.GetString(2);
 
@@ -67,6 +68,8 @@ namespace RegistrationSystem
                 reader.Close();
 
             }
+
+
 
             foreach (Student student in students)
             {

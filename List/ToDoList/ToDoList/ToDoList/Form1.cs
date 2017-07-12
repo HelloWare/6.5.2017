@@ -23,8 +23,12 @@ namespace ToDoList
         {
             NewToDoItemForm newToDoItemForm = new NewToDoItemForm();
             // Show testDialog as a modal dialog and determine if DialogResult = OK.
-            if (newToDoItemForm.ShowDialog(this) == DialogResult.OK)
+
+            DialogResult dr = newToDoItemForm.ShowDialog();
+
+            if (dr == DialogResult.OK)
             {
+
                 toDoList.Add(newToDoItemForm.NewToDoItem.Trim());
             }
             newToDoItemForm.Dispose();
@@ -34,7 +38,7 @@ namespace ToDoList
         private void RefreshList()
         {
             RefreshListBox();
-            RefreshGroup();
+            RefreshGroupBox();
         }
 
         private void RefreshListBox()
@@ -44,18 +48,21 @@ namespace ToDoList
             for (int i = 0; i < toDoList.Count; i++)
             {
                 toDoListBox.Items.Add(i+1+": "+toDoList[i]);
+
             }            
         }
 
-        private void RefreshGroup()
+        private void RefreshGroupBox()
         {
+            //remove all the controls iin the group box.
             toDoGroup.Controls.Clear();
 
+            //add checkbox for each item in toDoList
             for (int i = 0; i < toDoList.Count; i++)
             {
                 CheckBox checkBox = new CheckBox();
                 checkBox.Text = toDoList[i];
-                checkBox.Location = new Point(2, 30 * i + 10);
+                checkBox.Location = new Point(2, 20 * i + 15);
                 toDoGroup.Controls.Add(checkBox);
             }
         }

@@ -39,9 +39,9 @@ namespace ToDoList
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(newToDoItemTextbox.Text!="")
+            if(textbox.Text!="")
             {
-                this.newToDoItem = newToDoItemTextbox.Text.Trim();
+                this.newToDoItem = textbox.Text.Trim();
             }
         }
     }
