@@ -18,6 +18,7 @@ namespace RegistrationSystem
             InitializeComponent();
         }
 
+        Student lastStudent;
         List<Student> students = new List<Student>();
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace RegistrationSystem
 
                 string query = "SELECT * FROM Student;";
 
-                SqlCommand cmd = new SqlCommand(query,connection);
+                SqlCommand cmd = new SqlCommand(query, connection);
 
                 ////Update, Insert, Delete
                 //cmd.ExecuteNonQuery();
@@ -47,7 +48,13 @@ namespace RegistrationSystem
                 //cmd.ExecuteScalar();
 
                 SqlDataReader reader = cmd.ExecuteReader();
-
+                /*
+                0   1   2           index
+                id  fn  ln          name
+                1   k   k
+                2   d   d
+                3   h   h
+                */
                 if (reader.HasRows)
                 {
                     while (reader.Read())
@@ -59,6 +66,10 @@ namespace RegistrationSystem
                         std.LastName = reader.GetString(2);
 
                         students.Add(std);
+
+                        lastStudent = std;
+                        //show last name
+                        //MessageBox.Show(reader.GetString(2));
                     }
                 }
                 else
@@ -68,14 +79,16 @@ namespace RegistrationSystem
                 reader.Close();
 
             }
+            ShowStudents();
 
+        }
 
-
+        private void ShowStudents()
+        {
             foreach (Student student in students)
             {
                 listBox1.Items.Add(student.FirstName + " " + student.LastName);
             }
-
         }
     }
 }

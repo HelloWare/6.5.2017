@@ -40,6 +40,11 @@ namespace DataAdapterDemo
 
                 //dataGridView1.AutoGenerateColumns = true;
                 dataGridView1.DataSource = students.Tables[0];
+
+                foreach (DataRow item in students.Tables[0].Rows)
+                {
+
+                }
             }
             catch (Exception ex)
             {

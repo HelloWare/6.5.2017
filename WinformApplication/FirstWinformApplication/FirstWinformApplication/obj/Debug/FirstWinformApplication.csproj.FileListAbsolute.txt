@@ -7,3 +7,12 @@ C:\Users\HelloWare Academy\Desktop\HelloWare\HelloWare Academy\Summer\1\1\FirstW
 C:\Users\HelloWare Academy\Desktop\HelloWare\HelloWare Academy\Summer\1\1\FirstWinformApplication\FirstWinformApplication\obj\Debug\FirstWinformApplication.csproj.GenerateResource.Cache
 C:\Users\HelloWare Academy\Desktop\HelloWare\HelloWare Academy\Summer\1\1\FirstWinformApplication\FirstWinformApplication\obj\Debug\FirstWinformApplication.exe
 C:\Users\HelloWare Academy\Desktop\HelloWare\HelloWare Academy\Summer\1\1\FirstWinformApplication\FirstWinformApplication\obj\Debug\FirstWinformApplication.pdb
+C:\Users\HelloWare Academy\Documents\GitHub\6.5.2017\WinformApplication\FirstWinformApplication\FirstWinformApplication\bin\Debug\FirstWinformApplication.exe.config
+C:\Users\HelloWare Academy\Documents\GitHub\6.5.2017\WinformApplication\FirstWinformApplication\FirstWinformApplication\obj\Debug\FirstWinformApplication.exe
+C:\Users\HelloWare Academy\Documents\GitHub\6.5.2017\WinformApplication\FirstWinformApplication\FirstWinformApplication\obj\Debug\FirstWinformApplication.pdb
+C:\Users\HelloWare Academy\Documents\GitHub\6.5.2017\WinformApplication\FirstWinformApplication\FirstWinformApplication\bin\Debug\FirstWinformApplication.exe
+C:\Users\HelloWare Academy\Documents\GitHub\6.5.2017\WinformApplication\FirstWinformApplication\FirstWinformApplication\bin\Debug\FirstWinformApplication.pdb
+C:\Users\HelloWare Academy\Documents\GitHub\6.5.2017\WinformApplication\FirstWinformApplication\FirstWinformApplication\obj\Debug\FirstWinformApplication.csprojResolveAssemblyReference.cache
+C:\Users\HelloWare Academy\Documents\GitHub\6.5.2017\WinformApplication\FirstWinformApplication\FirstWinformApplication\obj\Debug\FirstWinformApplication.Form1.resources
+C:\Users\HelloWare Academy\Documents\GitHub\6.5.2017\WinformApplication\FirstWinformApplication\FirstWinformApplication\obj\Debug\FirstWinformApplication.Properties.Resources.resources
+C:\Users\HelloWare Academy\Documents\GitHub\6.5.2017\WinformApplication\FirstWinformApplication\FirstWinformApplication\obj\Debug\FirstWinformApplication.csproj.GenerateResource.Cache
