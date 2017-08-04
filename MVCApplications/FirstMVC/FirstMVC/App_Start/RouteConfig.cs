@@ -15,6 +15,8 @@ namespace FirstMVC
 
             routes.MapRoute(
                 name: "Default",
+                //www.hellowareacadmey.com/{controller}/{action}/{id}
+                //www.hellowareacademy.com/Home/Index
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );

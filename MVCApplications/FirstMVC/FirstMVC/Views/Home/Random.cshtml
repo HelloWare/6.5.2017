@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <br/>
+    <br/>
+    <p>This is me!</p>
+    <button class="btn" id="myBtn">Toggle my picture</button>
+    <img id="myPic" src="http://i2.cdn.cnn.com/cnnnext/dam/assets/161201115958-68-year-in-pictures-2016-restricted-super-169.jpg" style="display:none">
+
+    <form action="" method="GET">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+</div>
+<script>
+    $(document).ready( //wait until the document is ready.
+        function() //actions that get excuted after document is ready
+        {
+            $("#myBtn").click( // myBtn element click event
+                function()  //myBtn element click event handler
+                {
+                    $("#myPic").toggle(2000); //actions 
+                }
+            );
+        }
+    );
+</script>
+</body>
+</html>
