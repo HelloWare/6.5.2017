@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ResumeSystem_Onsite_08_03_2017.Models.MoonCake>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Shape)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stuffing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flavor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smell)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shape)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stuffing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flavor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smell)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CakeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CakeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CakeId })
+        </td>
+    </tr>
+}
+
+</table>
