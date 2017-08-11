@@ -8,7 +8,7 @@ namespace IMS.Models
     public class Part
     {
         public int Id { get; set; }
-        public string PartName { get; set; }
+        public string PartNumber { get; set; }
         public string Description { get; set; }
         public string Notes { get; set; }
         public string PicturePath { get; set; }

@@ -9,7 +9,7 @@ namespace IMS.Repositories
 {
     public static class RepoUtilities
     {
-        public static string connectionString = @"Data Source=ZWXU-LAPTOP\SQLEXPRESS;Initial Catalog=IMS;Integrated Security=True";
+        public static string connectionString = @"Data Source=LAPTOP-08TPTLQQ\;Initial Catalog=IMS;Integrated Security=True";
 
         public static int ExecuteNonQueryWrapper(SqlCommand command)
         {

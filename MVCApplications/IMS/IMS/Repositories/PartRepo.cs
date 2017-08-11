@@ -25,7 +25,7 @@ namespace IMS.Repositories //Data Access Layer, DAL
                     {
                         Part temp = new Part(); //temperory Part placeholder to save each row
                         temp.Id = Convert.ToInt32(reader["Id"]);
-                        temp.PartName = Convert.ToString(reader["PartName"]);
+                        temp.PartNumber = Convert.ToString(reader["PartNumber"]);
                         temp.Description = Convert.ToString(reader["Description"]);
                         temp.Notes = Convert.ToString(reader["Notes"]);
                         temp.PicturePath = Convert.ToString(reader["PicturePath"]);
@@ -43,9 +43,9 @@ namespace IMS.Repositories //Data Access Layer, DAL
 
         public void Insert(Part part)
         {
-            string cmdText = "Insert Into Part(Name,Description,PartName,Notes,PicturePath,Cost,IsActive,PartTypeId,CategoryId) Values(@Name,@Description,@PartName,@Notes,@PicturePath,@Cost,@IsActive,@PartTypeId,@CategoryId);";
+            string cmdText = "Insert Into Part(Description,PartNumber,Notes,PicturePath,Cost,IsActive,PartTypeId,CategoryId) Values(@Description,@PartNumber,@Notes,@PicturePath,@Cost,@IsActive,@PartTypeId,@CategoryId);";
             SqlCommand cmd = new SqlCommand(cmdText);
-            cmd.Parameters.AddWithValue("@PartName", part.PartName);
+            cmd.Parameters.AddWithValue("@PartNumber", part.PartNumber);
             cmd.Parameters.AddWithValue("@Description", part.Description);
             cmd.Parameters.AddWithValue("@Notes", part.Notes);
             cmd.Parameters.AddWithValue("@PicturePath", part.PicturePath); cmd.Parameters.AddWithValue("@Cost", part.Cost);
@@ -56,8 +56,8 @@ namespace IMS.Repositories //Data Access Layer, DAL
 
         public void Update(Part part)
         {
-            string cmdText = "Update Part Set Name=@Name,Description=@Description,PartName=@PartName,Notes=@Notes,PicturePath=@PicturePath,Cost=@Cost,IsActive=@IsActive,PartTypeId=@PartTypeId,CategoryId=@CategoryId where Id=@Id;";
-            SqlCommand cmd = new SqlCommand(cmdText); cmd.Parameters.AddWithValue("@PartName", part.PartName);
+            string cmdText = "Update Part Set Name=@Name,Description=@Description,PartNumber=@PartNumber,Notes=@Notes,PicturePath=@PicturePath,Cost=@Cost,IsActive=@IsActive,PartTypeId=@PartTypeId,CategoryId=@CategoryId where Id=@Id;";
+            SqlCommand cmd = new SqlCommand(cmdText); cmd.Parameters.AddWithValue("@PartNumber", part.PartNumber);
             cmd.Parameters.AddWithValue("@Description", part.Description);
             cmd.Parameters.AddWithValue("@Notes", part.Notes);
             cmd.Parameters.AddWithValue("@PicturePath", part.PicturePath); cmd.Parameters.AddWithValue("@Cost", part.Cost);
@@ -78,7 +78,6 @@ namespace IMS.Repositories //Data Access Layer, DAL
 
         public IEnumerable<Part> SelectAll()
         {
-
             string cmdText = "select * from Part";
             SqlCommand cmd = new SqlCommand(cmdText);
 
@@ -97,6 +96,5 @@ namespace IMS.Repositories //Data Access Layer, DAL
 
             return parts.FirstOrDefault();
         }
-
     }
 }
