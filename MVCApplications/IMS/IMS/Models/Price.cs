@@ -12,9 +12,18 @@ namespace IMS.Models
         public double MarkUp { get; set; }
 
         //navigation Properties
-        public Part Part { get; set; }
+        public Part Part
+        {
+            get
+            {
+                return new Part
+                {
+                    //Get Part by PartId (Part with Id==200)
+                };
+            }
+        }
 
         //Foreign Keys
-        public int PartId { get; set; }
+        public int PartId { get; set; }//==200
     }
 }
