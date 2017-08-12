@@ -56,14 +56,16 @@ namespace IMS.Repositories //Data Access Layer, DAL
 
         public void Update(Part part)
         {
-            string cmdText = "Update Part Set Name=@Name,Description=@Description,PartNumber=@PartNumber,Notes=@Notes,PicturePath=@PicturePath,Cost=@Cost,IsActive=@IsActive,PartTypeId=@PartTypeId,CategoryId=@CategoryId where Id=@Id;";
+            string cmdText = "Update Part Set Description=@Description,PartNumber=@PartNumber,Notes=@Notes,PicturePath=@PicturePath,Cost=@Cost,IsActive=@IsActive,PartTypeId=@PartTypeId,CategoryId=@CategoryId where Id=@Id;";
             SqlCommand cmd = new SqlCommand(cmdText); cmd.Parameters.AddWithValue("@PartNumber", part.PartNumber);
             cmd.Parameters.AddWithValue("@Description", part.Description);
             cmd.Parameters.AddWithValue("@Notes", part.Notes);
-            cmd.Parameters.AddWithValue("@PicturePath", part.PicturePath); cmd.Parameters.AddWithValue("@Cost", part.Cost);
-            cmd.Parameters.AddWithValue("@IsActive", part.IsActive); cmd.Parameters.AddWithValue("@PartTypeId", part.PartTypeId);
+            cmd.Parameters.AddWithValue("@PicturePath", part.PicturePath);
+            cmd.Parameters.AddWithValue("@Cost", part.Cost);
+            cmd.Parameters.AddWithValue("@IsActive", part.IsActive);
+            cmd.Parameters.AddWithValue("@PartTypeId", part.PartTypeId);
             cmd.Parameters.AddWithValue("@CategoryId", part.CategoryId);
-
+            cmd.Parameters.AddWithValue("@Id", part.Id);
             RepoUtilities.ExecuteNonQueryWrapper(cmd);
         }
 

@@ -36,6 +36,8 @@ namespace IMS.Repositories //Data Access Layer, DAL
             return prices;
         }
 
+
+
         public void Insert(Price price)
         {
             string cmdText = "Insert Into Price(Name,MarkUp,PartId) Values(@Name,@MarkUp,@PartId);";
@@ -72,6 +74,18 @@ namespace IMS.Repositories //Data Access Layer, DAL
 
             string cmdText = "select * from Price";
             SqlCommand cmd = new SqlCommand(cmdText);
+
+            IEnumerable<Price> prices = ExecuteReaderWrapper(cmd);
+
+            return prices;
+        }
+
+        public IEnumerable<Price> SelectAllPricesForPart(int partId)
+        {
+
+            string cmdText = "select * from Price where PartId=@PartId";
+            SqlCommand cmd = new SqlCommand(cmdText);
+            cmd.Parameters.AddWithValue("@PartId",partId);
 
             IEnumerable<Price> prices = ExecuteReaderWrapper(cmd);
 
