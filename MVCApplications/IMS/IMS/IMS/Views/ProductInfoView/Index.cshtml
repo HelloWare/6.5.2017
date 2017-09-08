@@ -1,0 +1,222 @@
+﻿@model IMS.Models.ProductInfoViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>ProductInfoViewModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Basic</h2>
+                @Html.HiddenFor(m => m.Part.Id, new { value = Model.Part.Id })
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Part.PartNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Part.PartNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Part.PartNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Part.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Part.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Part.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Part.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Part.Notes, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Part.Notes, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Part.Cost, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Part.Cost, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Part.Cost, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Part.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Part.IsActive)
+                            @Html.ValidationMessageFor(model => model.Part.IsActive, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Part.PartTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.Part.PartTypeId, (SelectList)ViewBag.PartTypeId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Part.PartTypeId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Part.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.Part.CategoryId, (SelectList)ViewBag.CategoryId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Part.CategoryId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Picture</h2>
+                <div class="ridge" style="width: 80%; height:50%;">
+                    @*@Html.LabelFor(model => model.Part.PicturePath, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Part.PicturePath, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Part.PicturePath, "", new { @class = "text-danger" })*@
+                    <img src=@Model.Part.PicturePath alt="Image view" style="width: 100%;height:100%;">
+                    @Html.HiddenFor(m => m.Part.PicturePath, new {value= Model.Part.PicturePath});
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Cost and Price</h2>
+                <div>
+                    <table id="PriceTable">
+                        <tr>
+                            <th></th>
+                            <th>MarkUp</th>
+                        </tr>
+                        @for (int i = 0; i < Model.Prices.Count(); i++)
+                        {
+                            @Html.HiddenFor(m => m.Prices[i].PartId, new { value = Model.Part.Id });
+                            @Html.HiddenFor(m => m.Prices[i].Id, new { value = Model.Prices[i].Id});
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => Model.Prices[i].Name, new
+                                       {
+                                           htmlAttributes = new
+                                           {
+                                               @class = "form-control",
+                                               name = "Model.Prices[i].Name"
+                                           }
+                                       })
+                                            @Html.ValidationMessageFor(model => Model.Prices[i].Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => Model.Prices[i].MarkUp, new
+                                       {
+                                           htmlAttributes = new
+                                           {
+                                               @class = "form-control",
+                                               name = "Model.Prices[i].MarkUp"
+                                           }
+                                       })
+                                            @Html.ValidationMessageFor(model => Model.Prices[i].MarkUp, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    <input type="button" id="AddPrice" value="Add New Price">
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Inventory</h2>
+                <div>
+                    <table id="InventoryTable">
+                        <tr>
+                            <th>Location</th>
+                            <th>Quantity</th>
+                        </tr>
+                        @for (int i = 0; i < Model.Inventories.Count(); i++)
+                        {
+                            @Html.HiddenFor(m => m.Inventories[i].PartId, new { value = Model.Part.Id });
+                            @Html.HiddenFor(m => m.Inventories[i].Id, new { value = Model.Inventories[i].Id });
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => Model.Inventories[i].Location, new { htmlAttributes = new { @class = "form-control",
+                                           name= "Model.Inventories[i].Location"
+                                       } })
+                                            @Html.ValidationMessageFor(model => Model.Inventories[i].Location, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => Model.Inventories[i].Quantity, new { htmlAttributes = new { @class = "form-control",
+                                           name= "Model.Inventories[i].Quantity"
+                                       } })
+                                            @Html.ValidationMessageFor(model => Model.Inventories[i].Quantity, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    <input type="button" id="AddInventory" value="Add New Price">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+        @Html.ActionLink("New", "Index", new { id = -1})
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        var partId = @Model.Part.Id;
+        var i = @Model.Prices.Count;
+        $(document).ready(function () {
+            $("#AddPrice").click(function () {
+                $("#PriceTable").append('<tr><td><div class="form-group"><div class="col-md-10">    <input class="form-control text-box single-line" id="Prices_0__Name" name="Prices[' + i + '].Name" type="text" value="Price Name"><span class="field-validation-valid text-danger" data-valmsg-for="Prices[' + i + '].Name" data-valmsg-replace="true"></span></div>                </div>    </td><td><div class="form-group">       <div class="col-md-10">    <input class="form-control text-box single-line" data-val="true" data-val-number="The field MarkUp must be a number." data-val-required="The MarkUp field is required." id="Prices_0__MarkUp" name="Prices[' + i + '].MarkUp" type="text" value="0.0">    <span class="field-validation-valid text-danger" data-valmsg-for="Prices[' + i + '].MarkUp" data-valmsg-replace="true"></span></div> </div></td></tr><input data-val="true" data-val-number="The field PartId must be a number." data-val-required="The PartId field is required." id="Prices_1__PartId" name="Prices[' + i + '].PartId" type="hidden" value="'+partId+'"><input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="Prices_1__Id" name="Prices[' + i +'].Id" type="hidden" value="-1">');
+                i++;
+            });
+        });
+
+        var j = @Model.Inventories.Count;
+        $(document).ready(function () {
+            $("#AddInventory").click(function () {
+                $("#InventoryTable").append('<tr><td><div class="form-group"><div class="col-md-10"><input class="form-control text-box single-line" id="Inventories_' + j + '__Location" name="Inventories[' + j + '].Location" value="" type="text"><span class="field-validation-valid text-danger" data-valmsg-for="Inventories[' + j + '].Location" data-valmsg-replace="true"></span></div></div></td><td><div class="form-group"><div class="col-md-10"><input class="form-control text-box single-line" data-val="true" data-val-number="The field Quantity must be a number." data-val-required="The Quantity field is required." id="Inventories_' + j + '__Quantity" name="Inventories[' + j + '].Quantity" value="0" type="text"><span class="field-validation-valid text-danger" data-valmsg-for="Inventories[' + j + '].Quantity" data-valmsg-replace="true"></span></div></div></td></tr><input data-val="true" data-val-number="The field PartId must be a number." data-val-required="The PartId field is required." id="Inventories_' + j + '__PartId" name="Inventories[' + j + '].PartId" value="' + partId + '" type="hidden"><input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="Inventories_' + j + '__Id" name="Inventories[' + j + '].Id" value="-1" type="hidden">');
+                j++;
+            });
+        });
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+
